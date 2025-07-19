@@ -8,6 +8,7 @@ const moodSummaryRoute = require('./routes/moodSummary');
 const streakRoutes = require('./routes/streakRoutes');
 const songRoutes = require('./routes/songRoutes');
 const exerciseRoutes = require('./routes/exerciseRoutes');
+const axios = require('axios');
 
 
 dotenv.config();
@@ -25,6 +26,23 @@ app.use('/api/mood-summary', moodSummaryRoute);
 app.use('/api/streak', streakRoutes);
 app.use('/api/songs', songRoutes);
 app.use('/api/exercises', exerciseRoutes);
+
+app.get('/api/news', async (req, res) => {
+  try {
+    const response = await axios.get(
+      `https://newsapi.org/v2/everything?q=mental health OR therapy OR anxiety OR depression&language=en&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`
+    );
+    const filtered = response.data.articles.filter(article => {
+      const text = (article.title + ' ' + article.description).toLowerCase();
+      return /mental health|anxiety|depression|therapy|psychology/.test(text);
+    });
+
+    res.json(filtered);
+  } catch (error) {
+    console.error('Error fetching news:', error.message);
+    res.status(500).json({ error: 'Failed to fetch news' });
+  }
+});
 
 
 // MongoDB connection
