@@ -15,7 +15,7 @@ const Dashboard = () => {
     const fetchSummary = async () => {
       try {
         const chatRes = await axios.get(
-          `http://localhost:5000/api/chat/history?sessionId=${sessionId}`,
+          `${process.env.REACT_APP_API_URL}/api/chat/history?sessionId=${sessionId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
