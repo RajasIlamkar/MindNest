@@ -11,7 +11,7 @@ const SongRecommendations = () => {
     const fetchSongs = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/songs/recommend', {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/songs/recommend`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSongs(res.data.songs || []);
