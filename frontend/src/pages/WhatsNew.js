@@ -1,8 +1,5 @@
-// src/pages/WhatsNew.js
 import React, { useEffect, useState } from 'react';
 import '../styles/WhatsNew.css';
-
-const API_KEY = 'dd189b5365794b5d8fd712345e7329e7'; // Replace with your NewsAPI key
 
 const WhatsNew = () => {
   const [articles, setArticles] = useState([]);
@@ -10,26 +7,16 @@ const WhatsNew = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-  try {
-    const res = await fetch(
-      `https://newsapi.org/v2/everything?q=mental%20health%20OR%20therapy%20OR%20anxiety%20OR%20depression&language=en&sortBy=publishedAt&apiKey=${API_KEY}`
-    );
-    const data = await res.json();
-
-    // Optional: Filter results to make sure mental health terms appear in title or description
-    const filtered = (data.articles || []).filter(article => {
-      const text = (article.title + ' ' + article.description).toLowerCase();
-      return /mental health|anxiety|depression|therapy|psychology/.test(text);
-    });
-
-    setArticles(filtered);
-  } catch (err) {
-    console.error('Error fetching articles:', err);
-  } finally {
-    setLoading(false);
-  }
-};
-
+      try {
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/news`);
+        const data = await res.json();
+        setArticles(data);
+      } catch (err) {
+        console.error('Error fetching articles:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     fetchNews();
   }, []);
@@ -56,3 +43,4 @@ const WhatsNew = () => {
 };
 
 export default WhatsNew;
+
