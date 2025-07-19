@@ -11,7 +11,7 @@ const ExerciseRecommendations = () => {
     const fetchRecommendations = async () => {
       try {
         const token = localStorage.getItem('token');
-        const { data } = await axios.get('http://localhost:5000/api/exercises/recommend', {
+        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/exercises/recommend`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setExercises(data.exercises); // [{ name: '...', benefits: '...' }, ...]
