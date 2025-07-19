@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --header-bg: #0a0a23;
+  --text-light: #f9f9fb;
+  --accent-blue: #6a5acd;
+  --accent-hover: #7b6fd8;
+  --logout-color: #ef4444;
+  --logout-hover: #f87171;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  background-color: var(--header-bg);
+  color: var(--text-light);
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e1e30;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: var(--accent-hover);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-hover);
+}
+
+.nav-divider {
+  height: 20px;
+  width: 1px;
+  background-color: #334155;
+  margin: 0 1rem;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--logout-color);
+  padding: 0.4rem 0.9rem;
+  color: var(--logout-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--logout-hover);
+  color: white;
+  border-color: var(--logout-hover);
+}

@@ -1,0 +1,64 @@
+.exercise-recommendation-container {
+  background-color: var(--deep-black);
+  color: var(--text-light);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 148, 198, 0.15); /* glow from accent-blue */
+  margin-left: 0;
+  flex: 1;
+  max-width: 48%;
+  min-width: 300px;
+  font-family: 'Sora', sans-serif;
+}
+
+.exercise-recommendation-container h2 {
+  color: var(--accent-blue);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.loading-text {
+  color: #94a3b8; /* subtle grey-blue for loading */
+  font-style: italic;
+  text-align: center;
+}
+
+.detected-mood {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--accent-blue);
+  text-align: center;
+}
+
+.exercise-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.exercise-item {
+  background-color: var(--dark-blue);
+  color: var(--text-light);
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 18, 66, 0.4);
+}
+
+.exercise-item:hover {
+  background-color: var(--mid-blue);
+}
+
+.exercise-name {
+  font-size: 1.1rem;
+  color: var(--accent-blue);
+  margin: 0 0 0.25rem 0;
+}
+
+.exercise-benefits {
+  font-size: 0.95rem;
+  color: #cbd5e1; /* soft text-light variant */
+}
