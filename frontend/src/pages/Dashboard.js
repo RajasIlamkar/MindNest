@@ -30,7 +30,7 @@ const Dashboard = () => {
           .join('\n');
 
         const moodRes = await axios.post(
-          'http://localhost:5000/api/mood-summary',
+          `${process.env.REACT_APP_API_URL}/api/mood-summary`,
           { chatHistory: messages },
           {
             headers: {
