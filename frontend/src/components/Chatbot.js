@@ -33,7 +33,7 @@ const Chatbot = () => {
 
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/chat/history?sessionId=${sessionId}`,
+          `${process.env.REACT_APP_API_URL}/api/chat/history?sessionId=${sessionId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -68,7 +68,7 @@ const Chatbot = () => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/chat',
+        `${process.env.REACT_APP_API_URL}/api/chat`,
         {
           message: input,
           sessionId,
