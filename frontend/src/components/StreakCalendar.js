@@ -12,7 +12,7 @@ const StreakCalendar = () => {
   useEffect(() => {
     const fetchStreak = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/streak', {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/streak`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
