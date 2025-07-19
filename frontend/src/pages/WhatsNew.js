@@ -8,7 +8,7 @@ const WhatsNew = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/news`);
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/news`);
         const data = await res.json();
         setArticles(data);
       } catch (err) {
